@@ -26,11 +26,13 @@ def main():
             fruit.new_position()
             snake.grow_snake()
 
-        for event in pygame.event.get():
+        for event in pygame.event.get(): # user controls
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.KEYDOWN:  
-                if event.key == pygame.K_UP:
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                elif event.key == pygame.K_UP:
                     snake.change_direction(0, -1)
                 elif event.key == pygame.K_DOWN:
                     snake.change_direction(0, 1)
