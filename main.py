@@ -44,6 +44,12 @@ def main():
 
         snake.move()
 
+
+        if snake.body[0][0] < 1 or snake.body[0][0] >= GRID_WIDTH - 1: # outside borders check
+            running = False
+        if snake.body[0][1] < 1 or snake.body[0][1] >= GRID_HEIGHT - 1:
+            running = False
+
         screen.fill(BLACK)
         fruit.draw(screen)
         snake.draw(screen)
