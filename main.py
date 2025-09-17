@@ -24,6 +24,7 @@ def main():
 
         if snake.body[0] == (fruit.x, fruit.y):
             fruit.new_position()
+            snake.grow_snake()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
