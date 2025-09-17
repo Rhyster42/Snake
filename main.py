@@ -4,6 +4,7 @@ import random
 from constants import *
 from snake import Snake
 from fruit import Fruit
+from gameborders import borders
 
 
 def main():
@@ -22,7 +23,7 @@ def main():
     running = True
     while running:
 
-        if snake.body[0] == (fruit.x, fruit.y):
+        if snake.body[0] == (fruit.x, fruit.y): #eat fruit effects
             fruit.new_position()
             snake.grow_snake()
 
@@ -46,6 +47,10 @@ def main():
         screen.fill(BLACK)
         fruit.draw(screen)
         snake.draw(screen)
+
+        for border in borders:
+            pygame.draw.rect(screen, BLUE, border)
+        
         pygame.display.flip()
         # framerate
         clock.tick(10)
