@@ -50,6 +50,10 @@ def main():
         if snake.body[0][1] < 1 or snake.body[0][1] >= GRID_HEIGHT - 1:
             running = False
 
+        for part in snake.body[1:]: # self collision detection
+            if snake.body[0] == part:
+                running = False
+
         screen.fill(BLACK)
         fruit.draw(screen)
         snake.draw(screen)
