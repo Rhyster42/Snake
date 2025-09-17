@@ -6,6 +6,7 @@ class Snake:
         self.body = [(x, y)] # list of coordinates for body parts
         self.direction = (1, 0)
         self.grow = False
+        print("snake initialized")
 
     def move(self):
         head_x, head_y = self.body[0] # head position
@@ -31,4 +32,5 @@ class Snake:
             rect = pygame.Rect(segment[0] * GRID_SIZE, segment[1] * GRID_SIZE,
                                GRID_SIZE, GRID_SIZE)
             pygame.draw.rect(screen, GREEN, rect)
+
 

@@ -3,6 +3,7 @@ import sys
 import random
 from constants import *
 from snake import Snake
+from fruit import Fruit
 
 
 def main():
@@ -14,12 +15,16 @@ def main():
     pygame.display.set_caption("Snake_Game")
     clock = pygame.time.Clock()
 
-    # Snake initialized - start position
+    # Snake/Fruit initialized - start position
     snake = Snake(GRID_WIDTH // 2, GRID_HEIGHT // 2)
-
+    fruit = Fruit()
 
     running = True
     while running:
+
+        if snake.body[0] == (fruit.x, fruit.y):
+            fruit.new_position()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -36,6 +41,7 @@ def main():
         snake.move()
 
         screen.fill(BLACK)
+        fruit.draw(screen)
         snake.draw(screen)
         pygame.display.flip()
         # framerate
