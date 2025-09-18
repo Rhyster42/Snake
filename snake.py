@@ -4,9 +4,9 @@ from constants import GRID_SIZE, GREEN
 class Snake:
     def __init__(self, x, y):
         self.body = [(x, y)] # list of coordinates for body parts
-        self.head = self.body[0]
         self.direction = (1, 0)
         self.grow = False
+        self.length = 1
 
     def move(self):
         head_x, head_y = self.body[0] # head position
@@ -26,6 +26,7 @@ class Snake:
 
     def grow_snake(self):
         self.grow = True
+        self.length += 1
 
     def draw(self, screen):
         for segment in self.body:
